@@ -30,9 +30,9 @@ const Calendar = props => {
     return (
         <div className="calendar-container">
             <div className="calendar-header">
-                <button onClick={props.prevMonth}>Prev</button>
+                <button className="cal-nav" onClick={props.prevMonth}>Prev</button>
                 <h1 className="month-title">{getCalendarTitle(props)}</h1>
-                <button onClick={props.nextMonth}>Next</button>
+                <button className="cal-nav" onClick={props.nextMonth}>Next</button>
             </div>
             <table className="calendar-example">
                 <thead>

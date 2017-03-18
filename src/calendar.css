@@ -9,6 +9,11 @@
     align-content: space-around;
 }
 
+.cal-nav {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
 .month-title {
     text-align: center;
 }

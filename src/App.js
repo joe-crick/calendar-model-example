@@ -40,13 +40,13 @@ class App extends Component {
 
   nextMonth() {
     this.setState({
-      month: ++this.state.month
+      month: this.state.month < 12 ? ++this.state.month : 1
     });
   }
   
   prevMonth() {
     this.setState({
-      month: --this.state.month
+      month: this.state.month > 1 ? --this.state.month : 12
     });
   }
   
