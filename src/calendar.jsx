@@ -1,5 +1,15 @@
 import React from 'react';
 
+function getEvents(events) {
+    return events.map((ev, idx) => {
+        return (
+            <li key={idx}>
+                {ev.time}: {ev.title}
+            </li>
+        )
+    });
+}
+
 const Calendar = props => {
 
     return (
@@ -7,9 +17,13 @@ const Calendar = props => {
             <tbody>
                 {props.month.map((week, index) => {
                     return (
-                        <tr>
+                        <tr key={index}>
                             {week.map((day, idx) => {
-                                return (<td><h3>{day.formattedDate}</h3></td>);
+                                return (<td key={idx}><h3>{day.formattedDate}</h3>
+                                    <ul>
+                                    {getEvents(day.events)}
+                                    </ul>
+                                </td>);
                             })}                                             
                     </tr>);
                 })}
