@@ -10,7 +10,12 @@ const year = new Date().getFullYear();
 const eventData = {};
 const stringDate = (day, month, year) => `${day}/${month}/${year}`;
 let mos = 12;
-
+/**
+* The following produces data in the format of:
+* { 
+*    '01/02/2017': [{time: '9:00', title: 'My Event' }]
+* }
+*/
 while(mos--) {
     eventData[stringDate('01', mos > 9 ? mos : `0${mos}`, year)] = [
         {time: '9:00', title: monthNameFinder(mos-1)},
