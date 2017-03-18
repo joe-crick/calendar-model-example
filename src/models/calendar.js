@@ -1,4 +1,4 @@
-var cal = require('calendar-model/dist/bundle.js');
+import cal from 'calendar-model/dist/bundle.js';
 
 /**
  * @description Initializes the calendar
@@ -6,7 +6,7 @@ var cal = require('calendar-model/dist/bundle.js');
  * @export
  * @returns 
  */
-module.exports = function initCalendar(calendarData) {
+export default function initCalendar(calendarData) {
 
     const getEvents = cal.event.makeEventFinder(calendarData);
 

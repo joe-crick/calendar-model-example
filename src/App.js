@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Calendar from './calendar.jsx';
-import calendarModelMaker from '../models/calendar';
+import calendarModelMaker from './models/calendar';
 import eventData from './event-data';
 
 // Put React on the window for React tools
@@ -14,7 +14,7 @@ class App extends Component {
 
   componentWillMount() {
     this.getMonth = calendarModelMaker(eventData);
-    this.month = this.getMonth('/01/03/2017');
+    this.month = this.getMonth('/03/01/2017');
   }
   
   render() {
