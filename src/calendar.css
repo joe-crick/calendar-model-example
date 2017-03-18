@@ -1,0 +1,22 @@
+.calendar-container {
+    margin-bottom: 50px;
+}
+
+.calendar-example {
+    border: 1px solid darkslategray;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.calendar-example .week .day {
+    border: 1px solid darkslategray;
+    vertical-align: top;
+}
+
+.calendar-example .week .day .events {
+    text-align: left;
+}
+
+.calendar-example .week .day.outside {
+    background-color: rgba(192,192,192,0.3);
+}

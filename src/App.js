@@ -14,7 +14,11 @@ class App extends Component {
 
   componentWillMount() {
     this.getMonth = calendarModelMaker(eventData);
-    this.month = this.getMonth('/03/01/2017');
+    this.year = '2017';
+    this.month = '03';
+    this.day = '01';
+    this.date = `${this.month}/${this.day}/${this.year}`;
+    this.calendarDays = this.getMonth(this.date);
   }
   
   render() {
@@ -24,7 +28,10 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to Calendar Model</h2>
         </div>
-        <Calendar month={this.month}/>
+        <Calendar 
+          month={this.month} 
+          year={this.year} 
+          calendarDays={this.calendarDays}/>
       </div>
     );
   }
