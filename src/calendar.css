@@ -13,10 +13,16 @@
     vertical-align: top;
 }
 
-.calendar-example .week .day .events {
+.calendar-example .week .day .day-contents {
+    height: 150px;
+    width: 150px;
+    overflow: auto;
+}
+
+.calendar-example .week .day .day-contents .events {
     text-align: left;
 }
 
 .calendar-example .week .day.outside {
-    background-color: rgba(192,192,192,0.3);
+    background-color: rgba(192, 192, 192, 0.3);
 }
