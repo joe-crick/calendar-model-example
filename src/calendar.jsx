@@ -1,16 +1,17 @@
 import React from 'react';
-import cal from 'calendar-model/dist/bundle.js';
+import {monthNameFinder} from 'calendar-model/lib/month';
+import {weekDayNameFinder} from 'calendar-model/lib/week';
 import './calendar.css';
 
-const monthNameFinder = cal.month.monthNameFinder();
-const weekDayNameFinder = cal.week.weekDayNameFinder();
+const getMonthName = monthNameFinder();
+const getWeekDayName = weekDayNameFinder();
 
 function getAdjustedMonth(month) {
     return parseInt(month, 10) - 1;
 }
 
 function getCalendarTitle(props) {
-    return `${monthNameFinder(getAdjustedMonth(props.month))}: ${props.year}`;
+    return `${getMonthName(getAdjustedMonth(props.month))}: ${props.year}`;
 }
 
 function getDayClassName(day, month) {
@@ -20,7 +21,7 @@ function getDayClassName(day, month) {
 function getWeekDayNames() {
     const names = [];
     for(let x = 0; x< 7; x++) {
-        names.push(<th key={x}>{weekDayNameFinder(x)}</th>)
+        names.push(<th key={x}>{getWeekDayName(x)}</th>)
     }
     return names;
 }

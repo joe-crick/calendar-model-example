@@ -1,4 +1,5 @@
-import cal from 'calendar-model/dist/bundle.js';
+import makeEventFinder from 'calendar-model/lib/event';
+import {getNestedCalendarMonth} from 'calendar-model/lib/month';
 
 /**
  * @description Initializes the calendar
@@ -11,10 +12,11 @@ import cal from 'calendar-model/dist/bundle.js';
  */
 export default function initCalendar(calendarData) {
 
-    const getEvents = cal.event.makeEventFinder(calendarData);
+    // Creates a stateful function that maps events to days
+    const getEvents = makeEventFinder(calendarData);
 
     return function getMonth(date) {
-        return cal.month.getNestedCalendarMonth({date, getEvents});
+        return getNestedCalendarMonth({date, getEvents});
     }
 
 }
