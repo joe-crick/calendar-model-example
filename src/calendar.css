@@ -2,16 +2,14 @@
     margin-bottom: 50px;
 }
 
-.calendar-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: space-around;
-}
-
 .cal-nav {
     margin-left: 10px;
     margin-right: 10px;
+}
+
+.cal-nav.right {
+    position: absolute;
+    right: 0;
 }
 
 .month-title {

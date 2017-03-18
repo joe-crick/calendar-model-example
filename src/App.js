@@ -13,6 +13,7 @@ class App extends Component {
   constructor (props) {
     super(props);
 
+    // Set the default date of the calendar to today
     const now = new Date();
 
     this.state = {
