@@ -1,11 +1,10 @@
 Calendar Model Example React App
 ==================
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/joe-crick/calendar-model.svg)](https://greenkeeper.io/)
 [![GitHub license](https://img.shields.io/github/license/Day8/re-frame.svg)](license.txt)
 ![Dependencies](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg)
 ![Current Version](https://img.shields.io/badge/version-0.0.1-green.svg)
-
+[![Greenkeeper badge](https://badges.greenkeeper.io/joe-crick/calendar-model-example.svg)](https://greenkeeper.io/)
 
 THIS IS A WORK IN PROGRESS.
 
