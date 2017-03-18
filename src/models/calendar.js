@@ -11,7 +11,7 @@ export default function initCalendar(calendarData) {
     const getEvents = cal.event.makeEventFinder(calendarData);
 
     return function getMonth(date) {
-        return cal.month.getNestedCalendarMonth({date, getEvents, isNested: true});
+        return cal.month.getNestedCalendarMonth({date, getEvents});
     }
 
 }
