@@ -2,6 +2,13 @@
     margin-bottom: 50px;
 }
 
+.calendar-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: space-around;
+}
+
 .month-title {
     text-align: center;
 }

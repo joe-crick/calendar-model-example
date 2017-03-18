@@ -8,10 +8,6 @@ if (window !== undefined) {
   window.React = React;
 }
 
-function getDate() {
-  return `${this.month}/${this.day}/${this.year}`
-}
-
 class App extends Component {
 
   constructor (props) {
@@ -25,7 +21,9 @@ class App extends Component {
       day: 1,
       getMonth: () => []
     };
+
     this.nextMonth = this.nextMonth.bind(this);
+    this.prevMonth = this.prevMonth.bind(this);
 
   }
 
@@ -35,14 +33,25 @@ class App extends Component {
     });
   }
 
+  getDate() {
+    const state = this.state;
+    return `${state.month}/${state.day}/${state.year}`
+  }
+
   nextMonth() {
     this.setState({
       month: ++this.state.month
-    })
+    });
+  }
+  
+  prevMonth() {
+    this.setState({
+      month: --this.state.month
+    });
   }
   
   render() {
-    const date = getDate.call(this.state);
+    const date = this.getDate();
     const monthDays = this.state.getMonth(date);
     return (
       <div className="app-root">
@@ -50,6 +59,7 @@ class App extends Component {
           month={this.state.month} 
           year={this.state.year} 
           nextMonth={this.nextMonth}
+          prevMonth={this.prevMonth}
           calendarDays={monthDays}/>
       </div>
     );
