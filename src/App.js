@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 import Calendar from './calendar.jsx';
 import calendarModelMaker from './models/calendar';
 import eventData from './event-data';
@@ -10,28 +8,49 @@ if (window !== undefined) {
   window.React = React;
 }
 
+function getDate() {
+  return `${this.month}/${this.day}/${this.year}`
+}
+
 class App extends Component {
 
-  componentWillMount() {
-    this.getMonth = calendarModelMaker(eventData);
-    this.year = '2017';
-    this.month = '03';
-    this.day = '01';
-    this.date = `${this.month}/${this.day}/${this.year}`;
-    this.calendarDays = this.getMonth(this.date);
+  constructor (props) {
+    super(props);
+
+    const now = new Date();
+
+    this.state = {
+      year: now.getFullYear(),
+      month: now.getMonth() + 1,
+      day: 1,
+      getMonth: () => []
+    };
+    this.nextMonth = this.nextMonth.bind(this);
+
+  }
+
+  componentDidMount() {
+     this.setState({
+       getMonth: calendarModelMaker(eventData)
+    });
+  }
+
+  nextMonth() {
+    this.setState({
+      month: ++this.state.month
+    })
   }
   
   render() {
+    const date = getDate.call(this.state);
+    const monthDays = this.state.getMonth(date);
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to Calendar Model</h2>
-        </div>
+      <div className="app-root">
         <Calendar 
-          month={this.month} 
-          year={this.year} 
-          calendarDays={this.calendarDays}/>
+          month={this.state.month} 
+          year={this.state.year} 
+          nextMonth={this.nextMonth}
+          calendarDays={monthDays}/>
       </div>
     );
   }

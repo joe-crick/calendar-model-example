@@ -2,6 +2,10 @@
     margin-bottom: 50px;
 }
 
+.month-title {
+    text-align: center;
+}
+
 .calendar-example {
     border: 1px solid darkslategray;
     margin: 0 auto;

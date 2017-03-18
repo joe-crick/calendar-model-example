@@ -20,7 +20,7 @@ function getDayClassName(day, month) {
 function getWeekDayNames() {
     const names = [];
     for(let x = 0; x< 7; x++) {
-        names.push(<th>{weekDayNameFinder(x)}</th>)
+        names.push(<th key={x}>{weekDayNameFinder(x)}</th>)
     }
     return names;
 }
@@ -29,7 +29,8 @@ const Calendar = props => {
 
     return (
         <div className="calendar-container">
-            <h1>{getCalendarTitle(props)}</h1>
+            <h1 className="month-title">{getCalendarTitle(props)}</h1>
+            <button onClick={props.nextMonth}>Next</button>
             <table className="calendar-example">
                 <thead>
                     <tr>
@@ -66,8 +67,8 @@ const Calendar = props => {
 };
 
 Calendar.propTypes = {
-    month: React.PropTypes.string,
-    year: React.PropTypes.string,
+    month: React.PropTypes.number,
+    year: React.PropTypes.number,
     calendarDays: React.PropTypes.array
 };
 
