@@ -19,7 +19,7 @@ const calendarWeek = props => {
         {timeSlots.map((hour, idx) => {
           return (
             <tr key={idx} className="day">
-              <td>{twentyFourToTwelveHourTime(hour)}</td>
+              <td className="day-contents">{twentyFourToTwelveHourTime(hour)}</td>
               {props.calendarDays.map((day, index) => {
                 return (
                   <td key={index} className="day-contents">

@@ -26,6 +26,8 @@
     height: 50px;
     width: 120px;
     overflow: auto;
+    border: 1px solid darkslategray;
+    padding: 10px;
 }
 
 .calendar-example .week .day, .calendar-example .day {
