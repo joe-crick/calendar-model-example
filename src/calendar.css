@@ -22,7 +22,13 @@
     border-collapse: collapse;
 }
 
-.calendar-example .week .day {
+.calendar-example .day .day-contents {
+    height: 50px;
+    width: 120px;
+    overflow: auto;
+}
+
+.calendar-example .week .day, .calendar-example .day {
     border: 1px solid darkslategray;
     vertical-align: top;
 }
