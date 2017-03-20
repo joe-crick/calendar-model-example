@@ -33,8 +33,6 @@ export default function initCalendar(calendarData) {
 const getWeekDayName = weekDayNameFinder();
 const getMonthName = monthNameFinder();
 
-
-
 /**
  * @desc Returns the appropriate text month name
  * @return {string}

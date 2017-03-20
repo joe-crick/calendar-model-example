@@ -1,12 +1,29 @@
 import React from 'react';
-import {getTwentyFourHourTimeSlots, twentyFourToTwelveHourTime} from 'calendar-model/lib/hours'
+import {getTwentyFourHourTimeSlots, twentyFourToTwelveHourTime} from 'calendar-model/lib/hours';
+import {getCalendarTitle} from './models/calendar';
 
 const {array, number} = React.PropTypes;
 const timeSlots = getTwentyFourHourTimeSlots();
 
 const calendarWeek = props => {
   return (
-    <div>
+    <div className="calendar-container">
+      <div className="calendar-header">
+        <div className="container">
+          <div className="row">
+            <div className="col">
+              <button className="cal-nav btn btn-primary right" onClick={props.prevWeek}>Prev</button>
+            </div>
+            <div className="col">
+              <h1 className="month-title">{getCalendarTitle(props.month, props.year)}</h1>
+            </div>
+            <div className="col">
+              <button className="cal-nav btn btn-primary" onClick={props.nextWeek}>Next</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <table className="calendar-example">
         <thead>
         <tr>
@@ -15,7 +32,7 @@ const calendarWeek = props => {
             <th key={idx}>{dayName} {props.calendarDays[idx].dayOfMonth}</th>)}
         </tr>
         </thead>
-        <tbody>
+        <tbody className="week-calendar">
         {timeSlots.map((hour, idx) => {
           return (
             <tr key={idx} className="day">

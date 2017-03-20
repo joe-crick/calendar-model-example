@@ -22,7 +22,7 @@
     border-collapse: collapse;
 }
 
-.calendar-example .day .day-contents {
+.calendar-example .week-calendar .day .day-contents {
     height: 50px;
     width: 120px;
     overflow: auto;
