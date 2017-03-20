@@ -26,7 +26,7 @@ class App extends Component {
 
     this.state = {
       year: now.getFullYear(),
-      month: now.getMonth(),
+      month: now.getMonth() + 1,
       week: getWeekNumber(now),
       day: 1,
       getMonth: () => [],
@@ -66,6 +66,8 @@ class App extends Component {
   }
 
   nextWeek() {
+    const blah =getNextWeek(this.getDate())
+    debugger
     this.setState({
       week: getNextWeek(this.getDate())
     });
