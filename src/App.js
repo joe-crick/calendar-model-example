@@ -26,7 +26,7 @@ class App extends Component {
 
     this.state = {
       year: now.getFullYear(),
-      month: now.getMonth() + 1,
+      month: now.getMonth(),
       week: getWeekNumber(now),
       day: 1,
       getMonth: () => [],
@@ -55,25 +55,25 @@ class App extends Component {
 
   nextMonth() {
     this.setState({
-      month: getNextMonth(this.state.month)
+      month: getNextMonth(this.getDate())
     });
   }
 
   prevMonth() {
     this.setState({
-      month: getPrevMonth(this.state.month)
+      month: getPrevMonth(this.getDate())
     });
   }
 
   nextWeek() {
     this.setState({
-      week: getNextWeek(this.state.week)
+      week: getNextWeek(this.getDate())
     });
   }
 
   prevWeek() {
     this.setState({
-      week: getPrevWeek(this.state.week)
+      week: getPrevWeek(this.getDate())
     });
   }
 
@@ -100,8 +100,8 @@ class App extends Component {
       <WeekCalendar
         month={this.state.month}
         year={this.state.year}
-        nextWeek={this.nextMonth}
-        prevWeek={this.prevMonth}
+        nextWeek={this.nextWeek}
+        prevWeek={this.prevWeek}
         weekdayNames={weekdayNames}
         calendarDays={weekDays}/>
     )

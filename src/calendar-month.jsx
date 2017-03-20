@@ -2,12 +2,8 @@ import React from 'react';
 import './calendar.css';
 import {getCalendarTitle} from './models/calendar';
 
-function getAdjustedMonth(month) {
-  return (month >> 0) - 1;
-}
-
 function getDayClassName(day, month) {
-  return `day ${(day.date.getMonth() === getAdjustedMonth(month)) ? 'current' : 'outside'}`
+  return `day ${(day.date.getMonth() === (month - 1)) ? 'current' : 'outside'}`
 }
 
 const {array, number} = React.PropTypes;
