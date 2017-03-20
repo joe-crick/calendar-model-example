@@ -79,7 +79,7 @@ class App extends Component {
   }
 
   prevWeek() {
-    const prevDate = getPrevWeek(this.getDate()).getDate()
+    const prevDate = getPrevWeek(this.getDate());
     const day = prevDate.getDate();
     const month = prevDate.getMonth() + 1;
     this.setState({
@@ -89,9 +89,11 @@ class App extends Component {
   }
 
   toggleCalendar() {
+    const isWeekView = this.state.showCalendar === MONTH_CALENDAR;
     this.setState({
-      showCalendar: this.state.showCalendar === MONTH_CALENDAR ? WEEK_CALENDAR : MONTH_CALENDAR
-    })
+      showCalendar: isWeekView ? WEEK_CALENDAR : MONTH_CALENDAR,
+      day: isWeekView ? this.state.day : '01'
+    });
   }
 
   showMonth(monthDays) {
