@@ -65,17 +65,26 @@ class App extends Component {
     });
   }
 
+  // TODO: This is a bit of a kludgy interface. How do we fix this?
+  // TODO: Need to figure out how to loop on week iterations
+  // TODO: Fix issue with month flapping around (0 vs 1 base)
   nextWeek() {
-    const blah =getNextWeek(this.getDate())
-    debugger
+    const nextDate = getNextWeek(this.getDate());
+    const day = nextDate.getDate();
+    const month = nextDate.getMonth() + 1;
     this.setState({
-      week: getNextWeek(this.getDate())
+      day: day,
+      month: month !== this.state.month ? month : this.state.month
     });
   }
 
   prevWeek() {
+    const prevDate = getPrevWeek(this.getDate()).getDate()
+    const day = prevDate.getDate();
+    const month = prevDate.getMonth() + 1;
     this.setState({
-      week: getPrevWeek(this.getDate())
+      day: day,
+      month: month !== this.state.month ? month : this.state.month
     });
   }
 
