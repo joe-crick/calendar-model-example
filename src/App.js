@@ -24,7 +24,9 @@ class App extends Component {
     // Set the default date of the calendar to today
     const now = new Date();
 
-    // Set the default state
+    // Set the default state. Calendar model does not maintain state for you, allowing you to determine how
+    // you want to manage your own state. In this example, we use React to maintain state. We could have just as
+    // easily used Redux or Mobx.
     this.state = {
       year: now.getFullYear(),
       month: now.getMonth() + 1,
@@ -75,7 +77,8 @@ class App extends Component {
     });
   }
 
-  // TODO: Fix issue with month flapping around (0 vs 1 base)
+  // TODO: Fix issue with month flapping around (0 vs 1 base) - Ideally, no one should have to worry about adding
+  // TODO: or subtracting values from months or days.
   // TODO: Make the Calendar Models observable (Most | Mobx?)
 
   // Looping through the weeks, we also maintain what month we're in
