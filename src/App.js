@@ -24,6 +24,7 @@ class App extends Component {
     // Set the default date of the calendar to today
     const now = new Date();
 
+    // Set the default state
     this.state = {
       year: now.getFullYear(),
       month: now.getMonth() + 1,
@@ -33,6 +34,7 @@ class App extends Component {
       showCalendar: MONTH_CALENDAR
     };
 
+    // Bind the components methods to its current context to ensure appropriate `this` access.
     this.nextMonth = this.nextMonth.bind(this);
     this.prevMonth = this.prevMonth.bind(this);
     this.nextWeek = this.nextWeek.bind(this);
@@ -40,6 +42,10 @@ class App extends Component {
     this.toggleCalendar = this.toggleCalendar.bind(this);
   }
 
+  // This is where you set the data for events (presumably some kind of data request). Of course, if you're using
+  // Redux, you'd do this differently. The important part is that the calendarModelMaker receives the event data.
+  // It uses this data to create an Event Finder, which Calendar Model uses to access event data when it generates
+  // the calendar.
   componentDidMount() {
     const calendarModel = calendarModelMaker(eventData);
     this.setState({
@@ -48,6 +54,10 @@ class App extends Component {
     });
   }
 
+  // This allows easy, granular setting of date elements: day, month, and year.
+  // You can set any of those properties individually, and the date is then obtained
+  // by the application when the view renders (ensuring that the state has properly
+  // been updated).
   getDate() {
     const state = this.state;
     return `${state.month}/${state.day}/${state.year}`
@@ -65,25 +75,25 @@ class App extends Component {
     });
   }
 
-  // TODO: This is a bit of a kludgy interface. How do we fix this?
-  // TODO: Need to figure out how to loop on week iterations
   // TODO: Fix issue with month flapping around (0 vs 1 base)
+  // TODO: Make the Calendar Models observable (Most | Mobx?)
+
+  // Looping through the weeks, we also maintain what month we're in
+  // If we loop past the current month, in the the next, we update the month value as well.
   nextWeek() {
     const nextDate = getNextWeek(this.getDate());
-    const day = nextDate.getDate();
     const month = nextDate.getMonth() + 1;
     this.setState({
-      day: day,
+      day: nextDate.getDate(),
       month: month !== this.state.month ? month : this.state.month
     });
   }
 
   prevWeek() {
     const prevDate = getPrevWeek(this.getDate());
-    const day = prevDate.getDate();
     const month = prevDate.getMonth() + 1;
     this.setState({
-      day: day,
+      day: prevDate.getDate(),
       month: month !== this.state.month ? month : this.state.month
     });
   }
