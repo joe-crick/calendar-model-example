@@ -1,6 +1,6 @@
 import makeEventFinder from 'calendar-model/lib/event';
-import {getNestedCalendarMonth, monthNameFinder} from 'calendar-model/lib/month';
-import {getWeekForDate, weekDayNameFinder} from 'calendar-model/lib/week';
+import {getNestedMonth, monthNameFinder} from 'calendar-model/lib/month';
+import {getWeek, weekDayNameFinder} from 'calendar-model/lib/week';
 
 /**
  * @description Initializes the calendar
@@ -21,10 +21,10 @@ export default function initCalendar(calendarData) {
 
   return {
     getMonth(startDate) {
-      return getNestedCalendarMonth({startDate, getEvents});
+      return getNestedMonth({startDate, getEvents});
     },
     getWeek(startDate) {
-      return getWeekForDate({startDate, getEvents});
+      return getWeek({startDate, getEvents});
     }
   }
 
