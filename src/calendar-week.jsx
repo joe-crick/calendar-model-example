@@ -33,17 +33,17 @@ const calendarWeek = props => {
         </tr>
         </thead>
         <tbody className="week-calendar">
-        {timeSlots.map((hour, idx) => {
+        {timeSlots.map(hour => {
           return (
-            <tr key={idx} className="day">
+            <tr key={hour} className="day">
               <td className="day-contents">{twentyFourToTwelveHourTime(hour)}</td>
               {props.calendarDays.map((day, index) => {
                 return (
                   <td key={index} className="day-contents">
                     <ul>
                       {day.events.filter(ev => ev.time === hour)
-                        .map((ev, idx) => {
-                          return (<li key={idx}>{ev.title}</li>)
+                        .map(ev => {
+                          return (<li key={ev.id}>{ev.title}</li>)
                         })}
                     </ul>
                   </td>

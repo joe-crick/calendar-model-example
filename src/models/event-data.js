@@ -18,9 +18,9 @@ let mos = 12;
 */
 while(mos--) {
     eventData[stringDate('01', mos > 9 ? mos : `0${mos}`, year)] = [
-        {time: '09:00', title: getMonthName(mos-1)},
-        {time: '12:00', title:  'Eat Burritos'},
-        {time: '18:00', title:  'Dinner with The Wife'}
+        {time: '09:00', title: getMonthName(mos-1), id: Math.random()},
+        {time: '12:00', title:  'Eat Burritos', id: Math.random()},
+        {time: '18:00', title:  'Dinner with The Wife', id: Math.random()}
     ]
 }
 
