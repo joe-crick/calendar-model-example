@@ -3,9 +3,10 @@ import MonthCalendar from './calendar-month';
 import WeekCalendar from './calendar-week';
 import calendarModelMaker from './models/calendar';
 import {getWeekDayNames} from './models/calendar';
-import {getWeekNumber, getNextWeek, getPrevWeek} from 'calendar-model/lib/week';
+import {getNextWeekDay, getPrevWeekDay} from 'calendar-model/lib/week';
 import {getNextMonth, getPrevMonth} from 'calendar-model/lib/month';
 import eventData from './models/event-data';
+import {getDay} from 'calendar-model/lib/day';
 
 // Put React on the window for React tools
 if (window !== undefined) {
@@ -22,15 +23,15 @@ class App extends Component {
     super(props);
 
     // Set the default date of the calendar to today
-    const now = new Date();
+    const now = getDay({date: new Date()});
 
     // Set the default state. Calendar model does not maintain state for you, allowing you to determine how
     // you want to manage your own state. In this example, we use React to maintain state. We could have just as
     // easily used Redux or Mobx.
     this.state = {
-      year: now.getFullYear(),
-      month: now.getMonth() + 1,
-      week: getWeekNumber(now),
+      year: now.year,
+      month: now.month,
+      week: now.weekNumber,
       day: 1,
       getMonth: () => [],
       showCalendar: MONTH_CALENDAR
@@ -77,26 +78,24 @@ class App extends Component {
     });
   }
 
-  // TODO: Fix issue with month flapping around (0 vs 1 base) - Ideally, no one should have to worry about adding
-  // TODO: or subtracting values from months or days.
   // TODO: Make the Calendar Models observable (Most | Mobx?)
 
   // Looping through the weeks, we also maintain what month we're in
   // If we loop past the current month, in the the next, we update the month value as well.
   nextWeek() {
-    const nextDate = getNextWeek(this.getDate());
-    const month = nextDate.getMonth() + 1;
+    const nextDate = getNextWeekDay(this.getDate());
+    const month = nextDate.month;
     this.setState({
-      day: nextDate.getDate(),
+      day: nextDate.dayOfMonth,
       month: month !== this.state.month ? month : this.state.month
     });
   }
 
   prevWeek() {
-    const prevDate = getPrevWeek(this.getDate());
-    const month = prevDate.getMonth() + 1;
+    const prevDate = getPrevWeekDay(this.getDate());
+    const month = prevDate.month;
     this.setState({
-      day: prevDate.getDate(),
+      day: prevDate.dayOfMonth,
       month: month !== this.state.month ? month : this.state.month
     });
   }
