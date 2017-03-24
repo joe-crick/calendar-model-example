@@ -37,9 +37,9 @@ const calendarWeek = props => {
           return (
             <tr key={hour} className="day">
               <td className="day-contents">{twentyFourToTwelveHourTime(hour)}</td>
-              {props.calendarDays.map((day, index) => {
+              {props.calendarDays.map(day => {
                 return (
-                  <td key={index} className="day-contents">
+                  <td key={day.dayOfMonth} className="day-contents">
                     <ul>
                       {day.events.filter(ev => ev.time === hour)
                         .map(ev => {
