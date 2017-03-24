@@ -9,16 +9,16 @@ const getMonthName = monthNameFinder();
 const year = new Date().getFullYear();
 const eventData = {};
 const stringDate = (day, month, year) => `${day}/${month}/${year}`;
-let mos = 12;
+let mos = 13;
 /**
 * The following produces data in the format of:
 * { 
 *    '01/02/2017': [{time: '9:00', title: 'My Event' }]
 * }
 */
-while(mos--) {
-    eventData[stringDate('01', mos > 9 ? mos : `0${mos}`, year)] = [
-        {time: '09:00', title: getMonthName(mos-1), id: Math.random()},
+for(let x = 1; x < mos; x++) {
+    eventData[stringDate('01', x > 9 ? x : `0${x}`, year)] = [
+        {time: '09:00', title: getMonthName(x), id: Math.random()},
         {time: '12:00', title:  'Eat Burritos', id: Math.random()},
         {time: '18:00', title:  'Dinner with The Wife', id: Math.random()}
     ]
