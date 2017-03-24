@@ -40,7 +40,7 @@ const getMonthName = monthNameFinder();
  * @param year
  */
 export function getCalendarTitle(month, year) {
-  return `${getMonthName(month-1)}: ${year}`;
+  return `${getMonthName(month)}: ${year}`;
 }
 
 /**
