@@ -3,7 +3,7 @@ import './calendar.css';
 import {getCalendarTitle} from './models/calendar';
 
 function getDayClassName(day, month) {
-  return `day ${((day.date.getMonth() +1) === month) ? 'current' : 'outside'}`
+  return `day ${((day.date.getMonth() + 1) === month) ? 'current' : 'outside'}`
 }
 
 const {array, number} = React.PropTypes;

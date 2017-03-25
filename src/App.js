@@ -78,8 +78,6 @@ class App extends Component {
     });
   }
 
-  // TODO: Make the Calendar Models observable (Most | Mobx?)
-
   // Looping through the weeks, we also maintain what month we're in
   // If we loop past the current month, we update the month value as well.
   nextWeek() {
