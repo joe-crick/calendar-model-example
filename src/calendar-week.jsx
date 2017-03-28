@@ -1,5 +1,6 @@
 import React from 'react';
-import {getTwentyFourHourTimeSlots, twentyFourToTwelveHourTime} from 'calendar-model/lib/hours';
+import {twentyFourToTwelveHourTime} from 'calendar-model/lib/date-utils/time_utils';
+import {getTwentyFourHourTimeSlots} from 'calendar-model/lib/hours';
 import {getCalendarTitle} from './models/calendar';
 
 const {array, number} = React.PropTypes;
