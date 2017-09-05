@@ -9,8 +9,7 @@ Calendar Model Example React App
 THIS IS A WORK IN PROGRESS.
 
 This is an example React app - _put together very quickly_ - that illustrates one way of using [`calendar-model`](https://github.com/joe-crick/calendar-model). It builds a simple calendar 
-with a few events on it in each month. The calendar navigates the months of the current year in a
-loop.
+with a few events on it in each month. The calendar navigates the months of the _current_ year.
 
 ## Get Started
 
